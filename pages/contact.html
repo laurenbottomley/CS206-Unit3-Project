@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/styles.css" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
 <body ng-controller="contactController">
     
     <div ng-include="'/nav.html'"></div>
-
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -27,6 +25,11 @@
                             <h1>Location</h1>
                         </div>
                         <div class="address">{{ address }}</div>
+                        <div class="container">
+                                                <!-- GOOGLE MAP -->
+
+                    <iframe id="location" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=641+Welsh+Road,+Maple+Glen,+PA+19002&amp;aq=&amp;sll=40.199068,-75.23489&amp;sspn=0.057035,0.129604&amp;ie=UTF8&amp;hq=&amp;hnear=641+E+Welsh+Rd,+Maple+Glen,+Pennsylvania+19002&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=641+Welsh+Road,+Maple+Glen,+PA+19002&amp;aq=&amp;sll=40.199068,-75.23489&amp;sspn=0.057035,0.129604&amp;ie=UTF8&amp;hq=&amp;hnear=641+E+Welsh+Rd,+Maple+Glen,+Pennsylvania+19002&amp;t=m&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:center">View Larger Map</a></small>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -74,24 +77,14 @@
                     </section>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <ui-gmap-google-map center="map.center" zoom="map.zoom">
-                    <ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id"></ui-gmap-marker>
-                </ui-gmap-google-map>
-            </div>
-        </div>
+        </div>  
     </div>
 
     <div ng-include="'/footer.html'"></div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3V5m5ruVkhywkVaGj4Y3KEmSW9McwuU&libraries=places"></script>
-    <script src="https://cdn.rawgit.com/nmccready/angular-simple-logger/v0.1.7/dist/angular-simple-logger.min.js"></script>
-    <script src="https://rawgit.com/angular-ui/angular-google-maps/2.5.0/dist/angular-google-maps.min.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.3.4/angular-google-maps.min.js"></script>    <script src="/js/app.js"></script>
     <script src="/js/controllers/contactController.js"></script>
 </body>
 </html>
