@@ -3,23 +3,23 @@ var pizzaApp = angular.module('pizzaApp', ['ngRoute']);
 pizzaApp.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'pages/index.html',
-        controller: 'homeController'
+        controller: '/js/controllers/homeController'
     })
     .when('/about', {
         templateUrl: 'pages/about.html',
-        controller: 'aboutController'
+        controller: '/js/controllers/aboutController'
     })
     .when('/menu', {
         templateUrl: 'pages/menu.html',
-        controller: 'menuController'
+        controller: 'js/controllers/menuController'
     })
     .when('/order', {
         templateUrl: 'pages/order.html',
-        controller: 'orderController'
+        controller: 'js/controllers/orderController'
     })
     .when('/contact', {
         templateUrl: 'pages/contact.html',
-        controller: 'contactController'
+        controller: 'js/controllers/contactController'
     })
     .otherwise({
         redirectTo: '/'
