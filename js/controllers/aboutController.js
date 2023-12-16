@@ -1,0 +1,4 @@
+pizzaApp.controller('aboutController', function ($scope) {
+    $scope.pageTitle = 'About Maple Glen Pizza';
+    $scope.ourStory = "Maple Glen Pizza is an authentic, family-owned Italian restaraunt and has been a staple of the community for years. Since moving to America in the 1970's, brothers Mario and Luigi dreamed of opening their own pizzeria to share their love of good cuisine. Our journey started with a passion for crafting the perfect pizza, using only the finest ingredients and time-tested recipes. Over the years, we've grown, but our commitment to quality and customer satisfaction remains unchanged.";
+});
