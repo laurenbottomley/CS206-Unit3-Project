@@ -1,0 +1,40 @@
+body {
+    background-color: #fffff0;
+    font-family: 'Book Antiqua', sans-serif;
+}
+
+nav {
+    text-align: center;
+    background-color: #98BF64;
+    font-size: 20px;
+    margin-top: 30px;
+    border-bottom: 1.5px solid #818181;
+    margin-bottom: 5%;    
+}
+
+a {
+    color: #98BF64;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+/* image container space between footer and image */
+.container {
+    margin-bottom: 5%;
+}
+.container img {
+    width: 100%;
+    height: auto;
+}
+/* facebook icon small id is facebook */
+#facebook {
+    width: 6%;
+    height: auto;
+    position: relative;
+    margin-top: -1%;
+}
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #98BF64;
+    color: #fffff0;
+}
