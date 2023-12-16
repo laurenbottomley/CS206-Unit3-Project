@@ -13,15 +13,4 @@ pizzaApp.controller('contactController', function ($scope) {
         { day: 'Friday, Saturday & Sunday', time: '11:00 am - 12:00am' }
     ];
 
-    // Set the coordinates for your location
-    $scope.map = {
-        center: { latitude: 40.1010, longitude: -75.3836 }, // Replace with your latitude and longitude
-        zoom: 15 // Adjust the zoom level as needed
-    };
-
-    $scope.marker = {
-        id: 1,
-        coords: { latitude: 40.1010, longitude: -75.3836 }, // Replace with your latitude and longitude
-        options: { draggable: false },
-    };
 });
