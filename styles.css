@@ -17,7 +17,6 @@ a {
     padding-left: 2%;
     padding-right: 2%;
 }
-/* image container space between footer and image */
 .container {
     margin-bottom: 5%;
 }
@@ -25,12 +24,14 @@ a {
     width: 100%;
     height: auto;
 }
-/* facebook icon small id is facebook */
 #facebook {
     width: 6%;
     height: auto;
     position: relative;
     margin-top: -1%;
+}
+table {
+    margin-left: -5%;
 }
 #location {
     width: 100%;
