@@ -21,8 +21,8 @@
         <!-- Order Form -->
         <form id="order" ng-submit="submitOrder()">
             <div class="form-group">
-                <label for="userName">User Name*</label>
-                <input type="text" class="form-control" id="userName" ng-model="order.userName" required>
+                <label for="fullName">Full Name*</label>
+                <input type="text" class="form-control" id="fullName" ng-model="order.fullName" required>
             </div>
             <div class="form-group">
                 <label for="email">Email*</label>
@@ -37,19 +37,27 @@
                 <label for="pizzaBase">Pizza Base*</label>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="plainBase" ng-model="order.pizzaBase" value="Plain" required>
-                    <label class="form-check-label" for="plainBase">Plain</label>
+                    <label class="form-check-label" for="plainBase">Plain ($20.75)</label>
                 </div>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="glutenFreeBase" ng-model="order.pizzaBase" value="Gluten Free" required>
-                    <label class="form-check-label" for="glutenFreeBase">Gluten Free</label>
+                    <label class="form-check-label" for="glutenFreeBase">Gluten Free ($20.75) </label>
                 </div>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="whiteBase" ng-model="order.pizzaBase" value="White" required>
-                    <label class="form-check-label" for="whiteBase">White</label>
+                    <label class="form-check-label" for="whiteBase">White ($24.50)</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="tomPie" ng-model="order.pizzaBase" value="Tomato Pie" required>
+                    <label class="form-check-label" for="tomPie">Tomato Pie ($20.75)</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="boardwalk" ng-model="order.pizzaBase" value="Boardwalk" required>
+                    <label class="form-check-label" for="boardwalk">Boardwalk ($29.95)</label>
                 </div>
             </div>
             <div class="form-group">
-                <label>Toppings</label>
+                <label>Toppings ($3.50 ea.)</label>
                 <div style="display: flex; flex-wrap: wrap;">
                     <div ng-repeat="topping in toppings" style="margin-right: 10px;">
                         <input type="checkbox" id="{{topping}}" ng-model="order.toppings[topping]" ng-true-value="'{{topping}}'" ng-false-value="">
@@ -58,11 +66,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Gourmet Toppings</label>
+                <label>Gourmet Toppings ($7.00 ea.)</label>
                 <div style="display: flex; flex-wrap: wrap;">
                     <div ng-repeat="topping in premiumToppings" style="margin-right: 10px;">
-                        <input type="checkbox" id="{{topping}}" ng-model="order.toppings[topping]" ng-true-value="'{{topping}}'" ng-false-value="">
-                        <label for="{{premiumToppings}}">{{topping}}</label>
+                        <input type="checkbox" id="{{topping}}" ng-model="order.premiumToppings[topping]" ng-true-value="'{{topping}}'" ng-false-value="">
+                        <label for="{{topping}}">{{topping}}</label>
                     </div>
                 </div>
             </div>
@@ -90,11 +98,9 @@
             </div>
             <!-- Itemized List of Costs -->
             <div>
-                <h3>Your Order</h3>
+                <h3>Order Summary</h3>
                 <ul>
-                    <li ng-repeat="topping in order.regularToppings">{{ topping }} - ${{ toppingPrices[topping] }}</li>
-                    <li ng-repeat="topping in order.premiumToppings">{{ topping }} - ${{ toppingPrices[topping] }}</li>
-                    <li>Pizza Base - ${{ pizzaBasePrices[order.pizzaBase] }}</li>
+                    <li ng-repeat="item in orderSummary">{{ item.item }} - ${{ item.cost }}</li>
                 </ul>
             </div>
             

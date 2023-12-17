@@ -4,7 +4,7 @@ pizzaApp.controller('orderController', function ($scope) {
 
     // Initialize toppings in $scope.order
     $scope.order = {
-        userName: '',
+        fullName: '',
         email: '',
         phone: '',
         toppings: [],
@@ -24,20 +24,57 @@ pizzaApp.controller('orderController', function ($scope) {
     $scope.totalCost = 0;
 
     $scope.$watchGroup(['order.pizzaBase'], function () {
-        if ($scope.order.pizzaBase === 'Plain') {
-            $scope.baseCost = 10.00;
-        } else if ($scope.order.pizzaBase === 'Gluten Free' || $scope.order.pizzaBase === 'White') {
-            $scope.baseCost = 12.00;
+        if ($scope.order.pizzaBase === 'Gluten Free') {
+            $scope.baseCost = 20.75;
+        } else if ($scope.order.pizzaBase === 'Tomato Pie') {
+            $scope.baseCost = 20.75;
+        } else if ($scope.order.pizzaBase === 'Plain') {
+            $scope.baseCost = 20.75;
+        } else if ($scope.order.pizzaBase === 'Boardwalk') {
+            $scope.baseCost = 29.95;
+        } else if ( $scope.order.pizzaBase === 'White') {
+            $scope.baseCost = 24.50;
         }
 
-        // Update total cost
         $scope.totalCost = $scope.baseCost;
     });
 
-    // Calculate Total Cost function
-    $scope.calculateTotalCost = function () {
-        return $scope.baseCost;
+    $scope.updateOrderSummary = function () {
+        // Clear the order summary
+        $scope.orderSummary = [];
+    
+        // Add the pizza base to the order summary
+        $scope.orderSummary.push({ item: $scope.order.pizzaBase + ' Pizza Base', cost: $scope.pizzaBasePrices[$scope.order.pizzaBase] });
+    
+        // Add the regular toppings to the order summary
+        for (var topping in $scope.order.regularToppings) {
+            if ($scope.order.regularToppings[topping]) {
+                $scope.orderSummary.push({ item: topping, cost: $scope.toppingPrices[topping] });
+            }
+        }
+    
+        // Add the premium toppings to the order summary
+        for (var premiumTopping in $scope.order.premiumToppings) {
+            if ($scope.order.premiumToppings[premiumTopping]) {
+                $scope.orderSummary.push({ item: premiumTopping, cost: $scope.toppingPrices[premiumTopping] });
+            }
+        }
     };
+    $scope.calculateTotalCost = function () {
+        var toppingsCost = 0;
+        for (var topping in $scope.order.toppings) {
+            if ($scope.order.toppings[topping]) {
+                toppingsCost += 3.50;
+            }
+        }
+        for (var topping in $scope.order.premiumToppings) {
+            if ($scope.order.premiumToppings[topping]) {
+                toppingsCost += 7.00;
+            }
+        }
+        return ($scope.baseCost + toppingsCost).toFixed(2);
+    };
+
 
     // Submit order function
     $scope.submitOrder = function () {
@@ -49,7 +86,7 @@ pizzaApp.controller('orderController', function ($scope) {
     // Clear form function
     $scope.clearForm = function () {
         $scope.order = {
-            userName: '',
+            fullName: '',
             email: '',
             phone: '',
             pizzaBase: '',
