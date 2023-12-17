@@ -95,6 +95,8 @@ pizzaApp.controller('orderController', function ($scope) {
             email: '',
             phone: '',
             pizzaBase: '',
+            toppings: [],
+            premiumToppings: [],
             notes: '',
             creditCard: '',
             expDate: '',

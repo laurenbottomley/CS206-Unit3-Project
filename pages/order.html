@@ -36,23 +36,23 @@
             <div class="form-group">
                 <label for="pizzaBase">Pizza Base*</label>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="plainBase" ng-model="order.pizzaBase" value="Plain" required>
+                    <input type="radio" class="form-check-input" id="plainBase" ng-model="order.pizzaBase" value="Plain">
                     <label class="form-check-label" for="plainBase">Plain ($20.75)</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="glutenFreeBase" ng-model="order.pizzaBase" value="Gluten Free" required>
+                    <input type="radio" class="form-check-input" id="glutenFreeBase" ng-model="order.pizzaBase" value="Gluten Free">
                     <label class="form-check-label" for="glutenFreeBase">Gluten Free ($20.75) </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="whiteBase" ng-model="order.pizzaBase" value="White" required>
+                    <input type="radio" class="form-check-input" id="whiteBase" ng-model="order.pizzaBase" value="White">
                     <label class="form-check-label" for="whiteBase">White ($24.50)</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="tomPie" ng-model="order.pizzaBase" value="Tomato Pie" required>
+                    <input type="radio" class="form-check-input" id="tomPie" ng-model="order.pizzaBase" value="Tomato Pie">
                     <label class="form-check-label" for="tomPie">Tomato Pie ($20.75)</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="boardwalk" ng-model="order.pizzaBase" value="Boardwalk" required>
+                    <input type="radio" class="form-check-input" id="boardwalk" ng-model="order.pizzaBase" value="Boardwalk">
                     <label class="form-check-label" for="boardwalk">Boardwalk ($29.95)</label>
                 </div>
             </div>
@@ -104,7 +104,8 @@
                 <!-- Itemized List of Costs -->
                 <ul>
                     <!-- add pizza base -->
-                    <li ng-if="order.pizzaBase">Pizza Base: {{ order.pizzaBase }} - ${{ baseCost }}</li>                    <!-- add regular toppings -->
+                    <li ng-if="order.pizzaBase">Pizza Base: {{ order.pizzaBase }} - ${{ baseCost }}</li>                    
+                    <!-- add regular toppings -->
                     <li ng-repeat="topping in getToppingsArray(order.toppings)">{{ topping }} - ${{ toppingsPrice }}</li>
                     <!-- add premium toppings -->
                     <li ng-repeat="topping in getToppingsArray(order.premiumToppings)">{{ topping }} - ${{ premiumToppingsPrice }}</li>
