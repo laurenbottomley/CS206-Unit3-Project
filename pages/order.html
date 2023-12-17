@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
 </head>
 <body ng-controller="orderController">
-    
-    <div ng-include="'nav.html'"></div>
+
+    <div ng-include="'/nav.html'"></div>
 
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>{{ pageTitle }}</h1>
+                <h2>{{ pageTitle }}</h2>
             </div>
         </div>
 
         <!-- Order Form -->
-        <form>
+        <form id="order" ng-submit="submitOrder()">
             <div class="form-group">
                 <label for="userName">User Name*</label>
                 <input type="text" class="form-control" id="userName" ng-model="order.userName" required>
@@ -32,25 +32,46 @@
                 <label for="phoneNumber">Phone Number*</label>
                 <input type="tel" class="form-control" id="phoneNumber" ng-model="order.phoneNumber" required>
             </div>
+            <!-- Radio Buttons for Pizza Base -->
             <div class="form-group">
                 <label for="pizzaBase">Pizza Base*</label>
-                <select class="form-control" id="pizzaBase" ng-model="order.pizzaBase" required>
-                    <option value="plain">Plain</option>
-                    <option value="glutenFree">Gluten Free</option>
-                    <option value="white">White</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Toppings</label>
-                <div class="form-check" ng-repeat="topping in toppings">
-                    <input type="checkbox" class="form-check-input" ng-model="order.toppings[topping]" id="{{ topping }}">
-                    <label class="form-check-label" for="{{ topping }}">{{ topping }}</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="plainBase" ng-model="order.pizzaBase" value="Plain" required>
+                    <label class="form-check-label" for="plainBase">Plain</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="glutenFreeBase" ng-model="order.pizzaBase" value="Gluten Free" required>
+                    <label class="form-check-label" for="glutenFreeBase">Gluten Free</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="whiteBase" ng-model="order.pizzaBase" value="White" required>
+                    <label class="form-check-label" for="whiteBase">White</label>
                 </div>
             </div>
             <div class="form-group">
-                <label for="notes">Notes</label>
-                <textarea class="form-control" id="notes" ng-model="order.notes"></textarea>
+                <label>Toppings</label>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <div ng-repeat="topping in toppings" style="margin-right: 10px;">
+                        <input type="checkbox" id="{{topping}}" ng-model="order.toppings[topping]" ng-true-value="'{{topping}}'" ng-false-value="">
+                        <label for="{{topping}}">{{topping}}</label>
+                    </div>
+                </div>
             </div>
+            <div class="form-group">
+                <label>Gourmet Toppings</label>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <div ng-repeat="topping in premiumToppings" style="margin-right: 10px;">
+                        <input type="checkbox" id="{{topping}}" ng-model="order.toppings[topping]" ng-true-value="'{{topping}}'" ng-false-value="">
+                        <label for="{{premiumToppings}}">{{topping}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="specialInstructions">Special Instructions</label>
+                <textarea class="form-control" id="specialInstructions" rows="3" ng-model="order.specialInstructions"></textarea>
+            </div>
+
             <div class="form-group">
                 <label for="creditCard">Credit Card*</label>
                 <input type="text" class="form-control" id="creditCard" ng-model="order.creditCard" required>
@@ -63,27 +84,31 @@
                 <label for="cvv">CVV*</label>
                 <input type="text" class="form-control" id="cvv" ng-model="order.cvv" required>
             </div>
-
+            <div class="form-group">
+                <label for="billingZip">Zipcode*</label>
+                <input type="text" class="form-control" id="billingZip" ng-model="order.billingZip" required>
+            </div>
             <!-- Itemized List of Costs -->
             <div>
-                <h3>Itemized Costs</h3>
+                <h3>Your Order</h3>
                 <ul>
-                    <li ng-repeat="(topping, selected) in order.toppings" ng-if="selected">{{ topping }} - ${{ toppingPrices[topping] }}</li>
+                    <li ng-repeat="topping in order.regularToppings">{{ topping }} - ${{ toppingPrices[topping] }}</li>
+                    <li ng-repeat="topping in order.premiumToppings">{{ topping }} - ${{ toppingPrices[topping] }}</li>
                     <li>Pizza Base - ${{ pizzaBasePrices[order.pizzaBase] }}</li>
                 </ul>
             </div>
-
+            
             <!-- Total Cost -->
             <div>
                 <h3>Total: ${{ calculateTotalCost() }}</h3>
             </div>
 
-            <button type="submit" class="btn btn-primary">Place Order</button>
+            <button type="submit" id="placeOrder" class="btn btn-primary">Place Order</button>
         </form>
     </div>
 
-    <div ng-include="'footer.html'"></div>
-    
+    <div ng-include="'/footer.html'"></div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
