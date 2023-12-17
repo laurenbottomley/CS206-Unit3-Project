@@ -103,9 +103,13 @@
                 <h3>Order Summary</h3>
                 <!-- Itemized List of Costs -->
                 <ul>
-                    <li ng-repeat="item in orderSummary">{{ item.item }} - ${{ item.cost }}</li>
+                    <!-- add pizza base -->
+                    <li ng-if="order.pizzaBase">Pizza Base: {{ order.pizzaBase }} - ${{ baseCost }}</li>                    <!-- add regular toppings -->
+                    <li ng-repeat="topping in getToppingsArray(order.toppings)">{{ topping }} - ${{ toppingsPrice }}</li>
+                    <!-- add premium toppings -->
+                    <li ng-repeat="topping in getToppingsArray(order.premiumToppings)">{{ topping }} - ${{ premiumToppingsPrice }}</li>
                 </ul>            
-            <!-- Total Cost -->
+                <!-- Total Cost -->
                 <h3>Total: ${{ calculateTotalCost() }}</h3>
                 <button type="submit" id="placeOrder" class="btn btn-primary">Place Order</button>
             </div>

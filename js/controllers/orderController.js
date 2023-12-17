@@ -16,10 +16,11 @@ pizzaApp.controller('orderController', function ($scope) {
         cvv: ''
     };
     
-        // Define toppings
-        $scope.toppings = ['Pepperoni','Anchovies','Sausage','Mushrooms', 'Peppers','Garlic', 'Extra Cheese', 'Ham', 'Broccoli', 'Pesto Sauce', 'Black Olives', 'Bacon', 'Ricotta', 'Spinach', 'Pineapple'];
-        $scope.premiumToppings = ['Chicken', 'Steak', 'Eggplant', 'Artichokes', 'Meatballs', 'Roasted Peppers'];
-        
+    // Define toppings
+    $scope.toppings = ['Pepperoni','Anchovies','Sausage','Mushrooms', 'Peppers','Garlic', 'Extra Cheese', 'Ham', 'Broccoli', 'Pesto Sauce', 'Black Olives', 'Bacon', 'Ricotta', 'Spinach', 'Pineapple'];
+    $scope.premiumToppings = ['Chicken', 'Steak', 'Eggplant', 'Artichokes', 'Meatballs', 'Roasted Peppers'];   
+    $scope.toppingsPrice= 3.50.toFixed(2);
+    $scope.premiumToppingsPrice = 7.00.toFixed(2);
     $scope.baseCost = 0;
     $scope.totalCost = 0;
 
@@ -73,6 +74,10 @@ pizzaApp.controller('orderController', function ($scope) {
             }
         }
         return ($scope.baseCost + toppingsCost).toFixed(2);
+    };
+    // Converting topping objects to array for itemized order summary
+    $scope.getToppingsArray = function(toppings) {
+        return Object.keys(toppings).filter(topping => toppings[topping]);
     };
 
 
