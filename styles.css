@@ -5,11 +5,13 @@ body {
 
 nav {
     text-align: center;
-    background-color: #98BF64;
     font-size: 20px;
     margin-top: 30px;
     border-bottom: 1.5px solid #818181;
     margin-bottom: 5%;    
+}
+.bg-green {
+    background-color: #98BF64;
 }
 
 a {
@@ -42,6 +44,17 @@ table {
 }
 small {
     margin-left: -10%
+}
+#order {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+#placeOrder {
+    background-color: #98BF64;
+    color: #fffff0;
+    border: none;
+    padding: 10px 22px;
+    margin-top: 5%;
 }
 footer {
     text-align: center;
