@@ -56,6 +56,7 @@
                     <label class="form-check-label" for="boardwalk">Boardwalk ($29.95)</label>
                 </div>
             </div>
+            <!-- Checkboxes for toppings -->
             <div class="form-group">
                 <label>Toppings ($3.50 ea.)</label>
                 <div style="display: flex; flex-wrap: wrap;">
@@ -65,6 +66,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Checkboxes for premium toppings -->
             <div class="form-group">
                 <label>Gourmet Toppings ($7.00 ea.)</label>
                 <div style="display: flex; flex-wrap: wrap;">
@@ -96,20 +98,18 @@
                 <label for="billingZip">Zipcode*</label>
                 <input type="text" class="form-control" id="billingZip" ng-model="order.billingZip" required>
             </div>
-            <!-- Itemized List of Costs -->
-            <div>
+            <!-- Order Summary -->
+            <div class="container" id="orderSummary">
                 <h3>Order Summary</h3>
+                <!-- Itemized List of Costs -->
                 <ul>
                     <li ng-repeat="item in orderSummary">{{ item.item }} - ${{ item.cost }}</li>
-                </ul>
-            </div>
-            
+                </ul>            
             <!-- Total Cost -->
-            <div>
                 <h3>Total: ${{ calculateTotalCost() }}</h3>
+                <button type="submit" id="placeOrder" class="btn btn-primary">Place Order</button>
             </div>
 
-            <button type="submit" id="placeOrder" class="btn btn-primary">Place Order</button>
         </form>
     </div>
 
