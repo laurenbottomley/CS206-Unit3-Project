@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body ng-controller="contactController">
     
-    <div ng-include="'/nav.html'"></div>
+    <div ng-include="'includes/nav.html'"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -26,8 +26,8 @@
                         </div>
                         <div class="address">{{ address }}</div>
                         <div class="container">
-                                                <!-- GOOGLE MAP -->
 
+                    <!-- GOOGLE MAP -->
                     <iframe id="location" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=641+Welsh+Road,+Maple+Glen,+PA+19002&amp;aq=&amp;sll=40.199068,-75.23489&amp;sspn=0.057035,0.129604&amp;ie=UTF8&amp;hq=&amp;hnear=641+E+Welsh+Rd,+Maple+Glen,+Pennsylvania+19002&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=641+Welsh+Road,+Maple+Glen,+PA+19002&amp;aq=&amp;sll=40.199068,-75.23489&amp;sspn=0.057035,0.129604&amp;ie=UTF8&amp;hq=&amp;hnear=641+E+Welsh+Rd,+Maple+Glen,+Pennsylvania+19002&amp;t=m&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:center">View Larger Map</a></small>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
         </div>  
     </div>
 
-    <div ng-include="'/footer.html'"></div>
+    <div ng-include="'includes/footer.html'"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3V5m5ruVkhywkVaGj4Y3KEmSW9McwuU&libraries=places"></script>

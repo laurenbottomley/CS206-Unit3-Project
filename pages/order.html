@@ -1,23 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="pizzaApp">
-    <head>
-        <title>Maple Glen Pizza</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="/styles.css" />
-    </head>
-    <body ng-controller="orderController">
-            
-            <div ng-include="'/nav.html'"></div>
-            <div ng-view></div>
+<head>
+    <title>Maple Glen Pizza - Order</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body ng-controller="orderController">
     
-            <div ng-include="'/footer.html'"></div>
+    <div ng-include="'nav.html'"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{{ pageTitle }}</h1>
+            </div>
+        </div>
+
+        <!-- Order Form -->
+        <form>
+            <div class="form-group">
+                <label for="userName">User Name*</label>
+                <input type="text" class="form-control" id="userName" ng-model="order.userName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" class="form-control" id="email" ng-model="order.email" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number*</label>
+                <input type="tel" class="form-control" id="phoneNumber" ng-model="order.phoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="pizzaBase">Pizza Base*</label>
+                <select class="form-control" id="pizzaBase" ng-model="order.pizzaBase" required>
+                    <option value="plain">Plain</option>
+                    <option value="glutenFree">Gluten Free</option>
+                    <option value="white">White</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Toppings</label>
+                <div class="form-check" ng-repeat="topping in toppings">
+                    <input type="checkbox" class="form-check-input" ng-model="order.toppings[topping]" id="{{ topping }}">
+                    <label class="form-check-label" for="{{ topping }}">{{ topping }}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea class="form-control" id="notes" ng-model="order.notes"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="creditCard">Credit Card*</label>
+                <input type="text" class="form-control" id="creditCard" ng-model="order.creditCard" required>
+            </div>
+            <div class="form-group">
+                <label for="expDate">Exp Date*</label>
+                <input type="text" class="form-control" id="expDate" ng-model="order.expDate" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV*</label>
+                <input type="text" class="form-control" id="cvv" ng-model="order.cvv" required>
+            </div>
+
+            <!-- Itemized List of Costs -->
+            <div>
+                <h3>Itemized Costs</h3>
+                <ul>
+                    <li ng-repeat="(topping, selected) in order.toppings" ng-if="selected">{{ topping }} - ${{ toppingPrices[topping] }}</li>
+                    <li>Pizza Base - ${{ pizzaBasePrices[order.pizzaBase] }}</li>
+                </ul>
+            </div>
+
+            <!-- Total Cost -->
+            <div>
+                <h3>Total: ${{ calculateTotalCost() }}</h3>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+    </div>
+
+    <div ng-include="'footer.html'"></div>
     
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-            <script src="/js/app.js"></script>
-            <script src="/js/controllers/orderController.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/orderController.js"></script>
+</body>
 </html>
