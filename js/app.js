@@ -2,8 +2,8 @@ var pizzaApp = angular.module('pizzaApp', ['ngRoute']);
 
 pizzaApp.config(function ($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: 'pages/index.html',
-        controller: '/js/controllers/homeController'
+        templateUrl: '/index.html',
+        controller: '/js/controllers/mainController'
     })
     .when('/about', {
         templateUrl: 'pages/about.html',
@@ -27,6 +27,6 @@ pizzaApp.config(function ($routeProvider) {
 });
 
 pizzaApp.controller('mainController', function ($scope) {
-    $scope.navbar = 'navbar.html';
-    $scope.footer = 'footer.html';
+    $scope.navbar = '/nav.html';
+    $scope.footer = '/footer.html';
 });
