@@ -3,34 +3,18 @@
         {
             "name": "Pizza",
             "items": [
-                {
-                    "name": "Plain",
-                    "price": "20.75"
-                },
-                {
-                    "name": "Tomato Pie",
-                    "price": "20.75"
-                },
-                {
-                    "name": "12\" Gluten Free Pizza",
-                    "price": "20.75"
-                },
-                {
-                    "name": "White",
-                    "price": "24.50",
-                    "description": "Garlic & Extra Mozzarella"
-                },
-                {
-                    "name": "Boardwalk",
-                    "price": "29.95"
-                }
+                {"name": "Plain", "price": "20.75"},
+                {"name": "Tomato Pie", "price": "20.75"},
+                {"name": "12\" Gluten Free Pizza", "price": "20.75"},
+                {"name": "White", "price": "24.50", "description": "Garlic & Extra Mozzarella"},
+                {"name": "Boardwalk", "price": "29.95"}
             ]
         },
         {
             "name": "Toppings",
             "items": [
                 {
-                    "name": "Toppings",
+                    "name": "Each Extra Topping",
                     "price": "3.50 each",
                     "description": "Pepperoni, Anchovies, Mushrooms, Sausage, Garlic, Broccoli, Ham, Spinach, Black Olives, Ricotta, Extra Cheese, Onions, Tomatoes, Green Peppers, Bacon, Pesto Sauce, Pineapple"
                 },
@@ -44,176 +28,58 @@
         {
             "name": "Salads",
             "items": [
-                {
-                    "name": "House Salad",
-                    "price": "9.95",
-                    "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons"
-                },
-                {
-                    "name": "Caesar Salad",
-                    "price": "10.95",
-                    "description": "Romaine Lettuce, Croutons, Parmesan Cheese"
-                },
-                {
-                    "name": "Greek Salad w/ Chicken",
-                    "price": "17.95",
-                    "description": "Grilled Chicken, sautéed mushrooms, onions, sweet peppers, melted mozzarella cheese over greens"
-                },
-                {
-                    "name": "Antipasto",
-                    "price": "17.95",
-                    "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons, Ham, Salami, Provolone Cheese"
-                },
-                {
-                    "name": "Chef Salad",
-                    "price": "17.95",
-                    "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons, Ham, Turkey, Provolone Cheese"
-                },
-                {
-                    "name": "Tuna Salad",
-                    "price": "17.95",
-                    "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons, Tuna"
-                },
-                {
-                    "name": "Chicken Caesar Salad",
-                    "price": "17.95",
-                    "description": "Romaine Lettuce, Croutons, Parmesan Cheese, Grilled Chicken"
-                }
+                {"name": "House Salad", "price": "9.95", "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons"},
+                {"name": "Caesar Salad", "price": "10.95", "description": "Romaine Lettuce, Croutons, Parmesan Cheese"},
+                {"name": "Greek Salad w/ Chicken", "price": "17.95", "description": "Grilled Chicken, sautéed mushrooms, onions, sweet peppers, melted mozzarella cheese over greens"},
+                {"name": "Antipasto", "price": "17.95", "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons, Ham, Salami, Provolone Cheese"},
+                {"name": "Chef Salad", "price": "17.95", "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons, Ham, Turkey, Provolone Cheese"},
+                {"name": "Tuna Salad", "price": "17.95", "description": "Lettuce, Tomato, Cucumber, Onions, Olives, Peppers, Carrots, Croutons, Tuna"},
+                {"name": "Chicken Caesar Salad", "price": "17.95", "description": "Romaine Lettuce, Croutons, Parmesan Cheese, Grilled Chicken"}
             ]
         },
         {
             "name": "Homemade Pastas",
             "items": [
-                {
-                    "name": "Spaghetti w/ Marinara Sauce",
-                    "price": "12.95"
-                },
-                {
-                    "name": "Gnocchi",
-                    "price": "15.95"
-                },
-                {
-                    "name": "Spaghetti w/ Mushrooms",
-                    "price": "18.95"
-                },
-                {
-                    "name": "Spaghetti w/ Meatballs",
-                    "price": "18.95"
-                },
-                {
-                    "name": "Spaghetti w/ Sausage",
-                    "price": "18.95"
-                },
-                {
-                    "name": "Ravioli (Cheese)",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Baked Ziti",
-                    "price": "18.95"
-                },
-                {
-                    "name": "Lasagna (Veggie or Meat)",
-                    "price": "18.95"
-                },
-                {
-                    "name": "Spaghetti Clam Sauce",
-                    "price": "18.95"
-                },
-                {
-                    "name": "Penne Alla Vodka",
-                    "price": "18.95"
-                }
+                {"name": "Spaghetti w/ Marinara Sauce", "price": "12.95"},
+                {"name": "Gnocchi", "price": "15.95"},
+                {"name": "Spaghetti w/ Mushrooms", "price": "18.95"},
+                {"name": "Spaghetti w/ Meatballs", "price": "18.95"},
+                {"name": "Spaghetti w/ Sausage", "price": "18.95"},
+                {"name": "Ravioli (Cheese)", "price": "13.95"},
+                {"name": "Baked Ziti", "price": "18.95"},
+                {"name": "Lasagna (Veggie or Meat)", "price": "18.95"},
+                {"name": "Spaghetti Clam Sauce", "price": "18.95"},
+                {"name": "Penne Alla Vodka", "price": "18.95"}
             ]
         },
         {
             "name": "Hoagies",
             "items": [
-                {
-                    "name": "Veggie",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Italian",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Ham",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Cheese",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Capicollo",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Tuna",
-                    "price": "13.95"
-                },
-                {
-                    "name": "Turkey (Fresh Carved Turkey)",
-                    "price": "13.95"
-                }
+                {"name": "Veggie", "price": "13.95"},
+                {"name": "Italian", "price": "13.95"},
+                {"name": "Ham", "price": "13.95"},
+                {"name": "Cheese", "price": "13.95"},
+                {"name": "Capicollo", "price": "13.95"},
+                {"name": "Tuna", "price": "13.95"},
+                {"name": "Turkey (Fresh Carved Turkey)", "price": "13.95"}
             ]
         },
         {
             "name": "Side Orders",
             "items": [
-                {
-                    "name": "Garlic Bread",
-                    "price": "5.50"
-                },
-                {
-                    "name": "French Fries",
-                    "price": "5.50"
-                },
-                {
-                    "name": "Curly Fries",
-                    "price": "8.50"
-                },
-                {
-                    "name": "Cheese Fries",
-                    "price": "7.95"
-                },
-                {
-                    "name": "Pizza Fries",
-                    "price": "7.95"
-                },
-                {
-                    "name": "Buffalo Fries",
-                    "price": "7.95"
-                },
-                {
-                    "name": "Beer Battered Onion Rings",
-                    "price": "8.95"
-                },
-                {
-                    "name": "Bacon Cheddar Fries",
-                    "price": "8.95"
-                },
-                {
-                    "name": "Mozzarella Sticks",
-                    "price": "7.95"
-                },
-                {
-                    "name": "Broccoli Bites",
-                    "price": "8.95"
-                },
-                {
-                    "name": "Sauteed Broccoli or Spinach",
-                    "price": "9.95"
-                },
-                {
-                    "name": "Tyson Chicken Fingers w/ Fries",
-                    "price": "10.95"
-                },
-                {
-                    "name": "Boneless Wings (Hot or BBQ)",
-                    "price": "16.95"
-                }
+                {"name": "Garlic Bread", "price": "5.50"},
+                {"name": "French Fries", "price": "5.50"},
+                {"name": "Curly Fries", "price": "8.50"},
+                {"name": "Cheese Fries", "price": "7.95"},
+                {"name": "Pizza Fries", "price": "7.95"},
+                {"name": "Buffalo Fries", "price": "7.95"},
+                {"name": "Beer Battered Onion Rings", "price": "8.95"},
+                {"name": "Bacon Cheddar Fries", "price": "8.95"},
+                {"name": "Mozzarella Sticks", "price": "7.95"},
+                {"name": "Broccoli Bites", "price": "8.95"},
+                {"name": "Sauteed Broccoli or Spinach", "price": "9.95"},
+                {"name": "Tyson Chicken Fingers w/ Fries", "price": "10.95"},
+                {"name": "Boneless Wings (Hot or BBQ)", "price": "16.95"}
             ]
         }
     ]
