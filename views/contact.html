@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- local styles -->
     <style>
         #facebook {
             width: 6%;
@@ -30,7 +31,7 @@
 </head>
 <body ng-controller="contactController">
     
-    <div ng-include="'/nav.html'"></div>
+    <div ng-include="'/includes/nav.html'"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -101,7 +102,7 @@
         </div>  
     </div>
 
-    <div ng-include="'/footer.html'"></div>
+    <div ng-include="'/includes/footer.html'"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz3V5m5ruVkhywkVaGj4Y3KEmSW9McwuU&libraries=places"></script>

@@ -6,19 +6,19 @@ pizzaApp.config(function ($routeProvider) {
         controller: '/js/controllers/mainController'
     })
     .when('/about', {
-        templateUrl: 'pages/about.html',
+        templateUrl: '/views/about.html',
         controller: '/js/controllers/aboutController'
     })
     .when('/menu', {
-        templateUrl: 'pages/menu.html',
+        templateUrl: '/views/menu.html',
         controller: 'js/controllers/menuController'
     })
     .when('/order', {
-        templateUrl: 'pages/order.html',
+        templateUrl: '/views/order.html',
         controller: 'js/controllers/orderController'
     })
     .when('/contact', {
-        templateUrl: 'pages/contact.html',
+        templateUrl: '/views/contact.html',
         controller: 'js/controllers/contactController'
     })
     .otherwise({
@@ -27,6 +27,6 @@ pizzaApp.config(function ($routeProvider) {
 });
 
 pizzaApp.controller('mainController', function ($scope) {
-    $scope.navbar = '/nav.html';
-    $scope.footer = '/footer.html';
+    $scope.navbar = '/includes/nav.html';
+    $scope.footer = '/includes/footer.html';
 });
