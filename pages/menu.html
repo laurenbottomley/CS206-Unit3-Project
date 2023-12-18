@@ -1,62 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="pizzaApp">
-    <head>
-        <title>Maple Glen Pizza</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="/styles.css" />
-        <style>
-            #download {
-                text-align: center;
-                margin-top: 5%;
-                margin-bottom: 5%;
-            }
-            h1 {
-                text-align: center;
-                margin-bottom: 5%;
-            }
-            a {
-                color: blue;
-            }
-            #fullMenu {
-                text-align: center;
-                border: 1px solid #ddd;
-            }
-            p {
-                margin-bottom: 3%;
-            }
-        </style>
-    </head>
-    <body ng-controller="menuController">
-            <div ng-include="'/nav.html'"></div>     
-            
-            <h1>Full Menu</h1>
-            <div class="container" id="menu">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div ng-repeat="category in menu.categories" id="fullMenu">
-                            <h3>{{ category.name }}</h3>
-                            <div class="menu" ng-repeat="item in category.items">
-                                <h6>{{ item.name }}</h6>
-                                <p>{{ item.description }} ... ${{ item.price }}</p>
-                            </div>
+<head>
+    <title>Maple Glen Pizza</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- local styles -->
+    <style>
+        #download {
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 5%;
+        }
+        a {
+            color: blue;
+        }
+        #fullMenu {
+            text-align: center;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        p {
+            margin-bottom: 3%;
+        }
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        #search {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body ng-controller="menuController">
+    <div ng-include="'/nav.html'"></div>     
+    
+    <h1>Full Menu</h1>
+
+    <!-- filter search bar -->
+    <div class="container" id="search">
+        <input type="text" ng-model="searchText" placeholder="Search...">
+    </div>
+
+    <div class="container" id="menu">
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-repeat="category in menu.categories" id="fullMenu">
+                    <!-- make category name toggleable -->
+                    <h3 ng-click="toggleCategory(category)">{{ category.name }}</h3>
+                    <div class="menu" ng-show="category.show">
+                        <div class="menu-item" ng-repeat="item in category.items | filter: searchText">
+                            <h6>{{ item.name }}</h6>
+                            <p>{{ item.description }} ... ${{ item.price }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            
-            <!-- download pdf link -->
-            <div class="container" id="download">
-                <small><a href="/images/MGP_menu.pdf" download="menu.pdf">Download Our Full Menu Here</a></small>
-            </div>
-            <div ng-include="'/footer.html'"></div>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-            <script src="/js/app.js"></script>
-            <script src="/js/controllers/menuController.js"></script>
-    </body>
+        </div>
+    </div>
+
+    <!-- download pdf link -->
+    <div class="container" id="download">
+        <small><a href="/images/MGP_menu.pdf" download="menu.pdf">Download Our Full Menu Here</a></small>
+    </div>
+    <div ng-include="'/footer.html'"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/menuController.js"></script>
+</body>
 </html>
