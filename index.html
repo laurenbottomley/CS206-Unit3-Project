@@ -7,18 +7,73 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="/styles.css" />
+        <style>
+            #welcome {
+                text-align: center;
+                font-size: 50px;
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+        
+            .img-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+        
+            .img-container img {
+                width: 90%;
+                height: auto;
+                padding-bottom:20px;
+            }
+        
+            #specials {
+                padding: 10px;
+                margin-top: 10px;
+                text-align: center;
+                margin-bottom: 10%;
+            }
+        
+            .container h2 {
+                margin-bottom: 5%;
+            }
+        </style>
+        
     </head>
     <body ng-controller="mainController">
-            
-            <div ng-include="'/nav.html'"></div>
-            <h1>Dine in at Maple Glen Pizza</h1>
-    
-            <div ng-include="'/footer.html'"></div>
-    
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-            <script src="/js/app.js"></script>
-            <script src="/js/controllers/mainController.js"></script>
+
+        <div ng-include="'/nav.html'"></div>
+        <div id="welcome">
+            <h1>Welcome to Maple Glen Pizza!</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="d-flex flex-wrap align-items-start">
+                    <div class="col-md-6">
+                        <div id="specials">
+                            <h2>This Week's Specials</h2>
+                            <div class="announcement" ng-repeat="announcement in announcements | orderBy:'name'" ng-if="announcement.priority">
+                                <h4>{{ announcement.name }}</h4>
+                                <p>{{ announcement.description }} - ${{ announcement.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <div class="img-container">
+                            <img src="/images/design.png" alt="MPG_collage" class="img-fluid mb-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+
+        <div ng-include="'/footer.html'"></div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+        <script src="/js/app.js"></script>
+        <script src="/js/controllers/mainController.js"></script>
     </body>
 </html>

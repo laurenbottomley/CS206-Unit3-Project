@@ -2,27 +2,31 @@
     {
         "name": "Shrimp Scampi",
         "description": "A savory dish of sauteed shrimp served over linguine in our house-made scampi sauce.",
-        "price": 44.95,
-        "priority": 1
+        "price": "44.95",
+        "priority": true
     },
     {
-        "name": "Brushetta Pie",
-        "description": "An Italian classic! A thin, garlic crust topped with mozzarella, and our homeade bruschetta of marinated tomatoes and fresh basil.",
-        "price": 29.95
+        "name": "Margherita Pizza",
+        "description": "An Italian classic! A thin, garlic crust topped with our homemade tomato sauce, mozzarella cheese, fresh basil.",
+        "price": "29.95",
+        "priority": true
     },
     {
-        "name": "MeatLovers",
+        "name": "Meat Lovers Pizza",
         "description": "Our most savory pizza! Loaded with pepperoni, sausage, ham, and bacon.",
-        "price": 34.90
+        "price": "34.90",
+        "priority": true
     },
     {
         "name": "Chicken Parmigiana",
         "description": "A staple of Italian cuisine! Breaded chicken breast topped with marinara sauce and mozzarella cheese. Served over spaghetti.",
-        "price": 34.90
+        "price": "34.90",
+        "priority": false
     },
     {
         "name": "Greek Pizza",
         "description": "A Greek inspired pizza, topped with spinach, roasted peppers, and feta cheese. Red or white base.",
-        "price": 34.90
+        "price": "34.90",
+        "priority": false
     }
 ]
